@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<!-- Navbar starts -->
+
+<div class="container">
+		<div class="menu-button">Menu</div>
+		<ul class="flexnav" data-breakpoint="800">
+			
+			<li>
+				<a href="#" onclick="ViewPortfolioSubmenus()">Portofolio Managers</a>
+				<ul id="PortfolioManagerSubmenus" style="display: none;">
+					<li><a href="#" onclick="createDeveloperButton()" >Create Portfolio Manager</a></li>
+					<li><a href="#" id="viewallpm" onclick="fetchAllPMData()">View all Portfolio Managers</a></li>
+					<li><a href="#" onclick="viewbyid()">View PortfolioManager by id</a></li>
+				</ul>
+			</li>
+			<li><a href="#" onclick="ViewProjectSubmenus()">Projects</a>
+                <ul id="ProjectsSubmenus" style="display: none;">
+					<li><a href="#" onclick="createProjectButton()">Create Projects</a></li>
+					<li><a href="#" onclick="fetchAllPJData()">View all Projects</a></li>
+					<li><a href="#" onclick="viewbyprojectid()">View Project by id</a></li>
+				</ul>
+            </li>
+			<li><a href="#" onclick="ViewDeveloperSubmenus()">Developer</a>
+                <ul id="DeveloperSubmenus" style="display: none;">
+					<li><a href="#" onclick="createDevelopersButton()">Create Developer</a></li>
+					<li><a href="#" onclick="fetchAllDvpData()">View all Developer</a></li>
+					<li><a href="#" onclick="viewbydeveloperid()">View Developer by id</a></li>
+				</ul>
+            </li>
+			<li><a href="login.html">Logout</a></li>
+		</ul>
+	</div>
+
+<!-- Navbar ends -->
+
+
+    <div id="tableContainer"></div>
+
+    <div id="createformContainer" style="display: none;">
+      <h3>Create Form</h3>
+      <form id="developerForm">
+         
+          <label for="fullname">Full Name:</label>
+          <input type="text" id="fullname" name="fullname"><br>
+      
+          <label for="status">Status:</label>
+          <input type="text" id="status" name="status"><br>
+      
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username"><br>
+      
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br>
+      
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea><br>
+      
+          <label for="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date"><br>
+      
+          <label for="projects">Projects:</label>
+          <input type="text" id="projects" name="projects"><br>
+      
+          <input type="submit" value="Submit" onclick="submitForm()">
+        </form>
+       
+    </div>
+
+  <div id="formContainer" style="display: none;">
+
+  <!-- Update form -->
+  <h3>Update Form</h3>
+  <form id="developerForm">
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname"><br>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status"><br>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description"></input><br>
+
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date"><br>
+
+    <label for="projects">Projects:</label>
+    <input type="text" id="projects" name="projects"><br>
+
+    <input type="submit" value="Submit" onclick="updatesubmit()">
+  </form> 
+
+
+  </div>
+
+
+  <div id="getformContainer" style="display: none;">
+    <h3>Get Form</h3>
+    <form id="developerForm">
+        <label for="id">Enter Id</label>
+        <input type="text" id="pmid" name="id"><br>
+        <input type="submit" value="Submit" onclick="submitGetForm()">
+      </form>
+     
+  </div>
+
+
+  <!-- Projects -->
+
+
+<!-- Create project -->
+
+<div id="createprojectformContainer" style="display: none;">
+  <h3>Create Form</h3>
+  <form id="developerForm" class="projectForm">
+     
+    <label for="ProjectName">Project Name:</label>
+    <input type="text" id="ProjectName" name="ProjectName"><br>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status"><br>
+
+    <label for="Start_Date">Start Date:</label>
+    <input type="date" id="Start_Date" name="Start_Date"><br>
+
+    <label for="description">description:</label>
+    <input type="description" id="description" name="description"><br>
+  
+      <input type="submit" value="Submit" onclick="submitprojectForm()">
+    </form>
+   
+</div>
+
+  <div id="ProjectformContainer" style="display: none;">
+
+    <!-- Update form -->
+    <h3>Update project Form</h3>
+    <form id="developerForm" class="Updateformdataproject">
+  
+      <label for="ProjectName">Project Name:</label>
+      <input type="text" id="ProjectName" name="ProjectName"><br>
+  
+      <label for="status">Status:</label>
+      <input type="text" id="status" name="status"><br>
+  
+      <label for="Start_Date">Start Date:</label>
+      <input type="date" id="Start_Date" name="Start_Date"><br>
+  
+      <label for="description">description:</label>
+      <input type="description" id="description" name="description"><br>
+  
+      <input type="submit" value="Submit" onclick="updateProjectsubmit()">
+    </form> 
+  
+  
+    </div>
+
+    <div id="getprojectformContainer" style="display: none;">
+      <h3>Get Form</h3>
+      <form id="developerForm">
+          <label for="id">Enter Id</label>
+          <input type="text" id="pjid" name="id"><br>
+          <input type="submit" value="Submit" onclick="submitGetProjectForm()">
+        </form>
+       
+    </div>
+
+
+<!-- Developer -->
+
+
+
+<!-- Create -->
+
+
+<div id="createdeveloperformContainer" style="display: none;">
+  <h3>Create Form</h3>
+  <form id="developerForm" class="developersForm">
+     
+    <label for="DeveloperName">Developer Name:</label>
+    <input type="text" id="DeveloperName" name="DeveloperName"><br>
+
+    <label for="Projects">Projects :</label>
+    <input type="text" id="Projects" name="Projects"><br>
+  
+      <input type="submit" value="Submit" onclick="submitdeveloperForm()">
+    </form>
+   
+</div>
+
+
+
+
+
+<div id="DeveloperformContainer" style="display: none;">
+
+  <!-- Update form -->
+  <h3>Update project Form</h3>
+  <form id="developerForm" class="Updateformdatadeveloper">
+
+    <label for="ProjectName">Developer Name:</label>
+    <input type="text" id="ProjectName" name="ProjectName"><br>
+
+    <label for="status">Projects :</label>
+    <input type="text" id="status" name="status"><br>
+
+    <input type="submit" value="Submit" onclick="updateDevelopersubmit()">
+  </form> 
+
+
+  </div>
+
+
+  <div id="getdeveloperformContainer" style="display: none;">
+    <h3>Get Form</h3>
+    <form id="developerForm">
+        <label for="id">Enter Id</label>
+        <input type="text" id="dvid" name="id"><br>
+        <input type="submit" value="Submit" onclick="submitGetDeveloperForm()">
+      </form>
+     
+  </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
